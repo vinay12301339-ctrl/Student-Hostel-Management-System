@@ -80,6 +80,19 @@ A comprehensive, production-ready student hostel management system with full-fea
 │   ├── Dockerfile
 │   └── package.json
 │
+├── shopping-habit-tracker/ # 🛍️ Java Spring Boot Shopping Habit Tracker
+│   ├── src/
+│   │   ├── main/java/com/habittracker/
+│   │   │   ├── model/      # User, Purchase, Habit, Mood, Goal, Nudge, Badge, WishlistItem
+│   │   │   ├── repository/ # Spring Data JPA repositories
+│   │   │   ├── service/    # Nudge engine, habit analysis, gamification, analytics
+│   │   │   ├── controller/ # REST API endpoints
+│   │   │   ├── dto/        # Request/Response DTOs
+│   │   │   └── config/     # CORS, exception handling
+│   │   └── resources/
+│   │       └── application.properties
+│   └── pom.xml
+│
 ├── docker-compose.yml      # Full stack orchestration
 ├── .github/workflows/      # CI/CD pipelines
 └── README.md
@@ -174,6 +187,31 @@ cd backend && npm test
 
 # Frontend type-check
 cd frontend && npx tsc --noEmit
+
+# Shopping Habit Tracker tests (Java/JUnit)
+cd shopping-habit-tracker && mvn test
+```
+
+---
+
+## 🛍️ Shopping Habit Tracker
+
+A companion Java Spring Boot module that tracks and gamifies shopping habits. See [`shopping-habit-tracker/README.md`](./shopping-habit-tracker/README.md) for the full feature list and API docs.
+
+**Key capabilities:**
+- 🤖 AI-powered nudges (rule-based) for smarter spending
+- 🔄 Habit loop detection with break-the-loop challenges
+- 🏆 Gamification: badges, points, streaks
+- 😊 Mood tracker integration
+- 📊 Analytics dashboards (spending by mood, shop visits, hourly activity, color trends)
+- 🎭 Wishlist vs. Reality with monthly "Impulse Surprise" reports
+- 🎯 Customizable quirky goals (e.g., *"No Coffee Mugs for 2 Months"*)
+
+```bash
+cd shopping-habit-tracker
+mvn spring-boot:run
+# App starts at http://localhost:8081
+# H2 console: http://localhost:8081/h2-console
 ```
 
 ## 📄 License
